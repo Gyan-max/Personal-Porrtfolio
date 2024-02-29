@@ -162,10 +162,10 @@ span {
 }
 
 .text-animation {
-	font-size: 2.5rem;
-	font-weight: 700;
-	min-width: 100%;
-	margin: 0 0 2rem 0;
+	font-size: 34px;
+	font-weight: 600;
+	min-width: 280%;
+	/* margin: 0 0 2rem 0; */
 }
 .text-animation span {
 	position: relative;
@@ -176,18 +176,18 @@ span {
 	animation: words 20s infinite;
 }
 .text-animation span::after {
-	content: "";
-	background-color: var(--main-color);
+	content: "" ;
+	/* background-color: var(--main-color); */
 	position: absolute;
-	width: 0px;
+	width: calc(100% + 8px);
 	height: 100%;
-	border-left: solid var(--main-color);
+	border-right: solid var(--main-color);
 	right: -8px;
-	animation: cursor 0.6s infinite typing 20s steps(11) infinite;
+	animation: cursor 0.6s infinite typing 20s steps(14) infinite;
 }
 @keyframes cursor {
 	to {
-		border-color: transparent;
+		border-left: 3px solid var(--main-color);
 	}
 }
 @keyframes words {
@@ -195,17 +195,21 @@ span {
 	20% {
 		content: "Web Developer";
 	}
-	25%,
-	45% {
+	21%,
+	40% {
 		content: "Python Programmer";
 	}
-	50%,
-	70% {
-		content: "Data Analyst";
+	41%,
+	60% {
+		/* content: "Data Analyst"; */
 	}
-	75%,
-	100% {
+	61%,
+	80% {
 		content: "Front-End Developer";
+	}
+	81%,
+	100% {
+		content: "Web Designer";
 	}
 }
 
@@ -231,7 +235,7 @@ span {
 	65%,
 	80%,
 	85% {
-		width: 100%;
+		width: calc(100% + 8px);
 	}
 }
 .heading {
@@ -313,6 +317,53 @@ span {
 }
 ::-webkit-scrollbar-thumb:active {
 	background-color: rgb(241, 0, 217);
+}
+.skills {
+	background: var(--bg-color);
+}
+.skills .container {
+	/* background: ; */
+	color: var(--text-color);
+	border-radius: 1rem;
+	padding: 2rem;
+	width: 70%;
+	margin: auto;
+	margin-top: 2rem;
+}
+.skills .container .row{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	flex-wrap: wrap;
+	gap: 1.5rem;
+}
+.skills .container .bar {
+	margin-bottom: 15px;
+	padding: 10px;
+	border-radius: 1rem;
+	background: var(--second-bg-color);
+	box-shadow: 0 0 px var(--main-color);
+	transition: 0.8s ease-in-out;
+}
+.skills .container .bar:hover {
+	transform: scale(1.1);
+	color: var(--main-color);
+	background-color: white;
+	box-shadow: 0 0 25px var(--main-color);
+	transition: transform 0.3s ease-in-out;
+	transition: transform smooth;
+
+}
+.skills .container.bar ,.info{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+.skills .container .bar .info span{
+	font-size: 2rem;
+	font-weight: 500;
+	margin-left: 0.5rem ;
 }
 .projects{
 	background: var(--bg-color);
